@@ -177,6 +177,33 @@ body {
     display: block;
 }
 
+.game-start {
+    position: absolute;
+    top: 40px;
+    left: 125px;
+    width: 450px;
+    height: 290px;
+    background-color: #fbbd05;
+    border-radius: 50px;
+    text-align: center;
+    padding-top: 3em;
+    color: #4285f5;
+}
+
+.game-start-text {
+    color: #4285f5;
+    padding: 1em;
+    line-height: 1.5em;
+}
+
+.game-start-description {
+    color: #000000;
+    padding: 0.5em 3em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-align: left;
+}
+
 
 /* deze klasse wordt toegevoegd indien de speler al zijn levens kwijt is */
 
@@ -202,18 +229,19 @@ body {
     font-size: 13px;
     margin-top: 3em;
     padding: 0 2em;
+    line-height: 1.5em;
 }
 
 .final-score {
-    margin-top: 3em;
+    margin: 2em;
 }
 
-.restart {
+.btn {
     display: inline-block;
     text-decoration: none;
     background-color: #34ab53;
     color: #ffffff;
-    margin-top: 3em;
+    margin-top: 1.5em;
     padding: 15px 30px;
     transition: .3s ease;
 }
@@ -221,7 +249,7 @@ body {
 
 /* hover transformation waarbij de button 5px naar beneden gaat en er een box shadow wordt toegevoegd */
 
-.restart:hover {
+.btn:hover {
     transform: translateY(5px);
     transition: .3s ease;
     box-shadow: 0 5px 0 #288440;
