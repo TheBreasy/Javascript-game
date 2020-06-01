@@ -1,0 +1,228 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+}
+
+.center {
+    width: 700px;
+    height: 500px;
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    margin: -250px 0 0 -350px;
+    overflow: hidden;
+}
+
+.game {
+    width: 700px;
+    height: 500px;
+    background-repeat: no-repeat;
+}
+
+
+/* looping achtergrond van het spel zelf */
+
+.background {
+    width: 2100px;
+    z-index: 1;
+    background-image: url(../images/background.svg);
+    animation: looping-background 7s linear infinite;
+}
+
+
+/* de achtergrond verplaatst op de x-as met -1400px */
+
+@keyframes looping-background {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(-1400px);
+    }
+}
+
+
+/* sprite van de speler waarbij de x positie wordt verplaatst */
+
+.player {
+    background: transparent url(../images/player.png) 0 0 no-repeat;
+    width: 60px;
+    height: 110px;
+    position: absolute;
+    top: 290px;
+    left: 50px;
+    animation: player 0.3s infinite steps(2);
+}
+
+@keyframes player {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: -120px;
+    }
+}
+
+
+/* schaduw onder de speler */
+
+.shadow {
+    background: url(../images/shadow.png) no-repeat;
+    width: 60px;
+    height: 3px;
+    position: absolute;
+    top: 399px;
+    left: 50px;
+}
+
+
+/* in deze klasse zit de animatie voor het springen, die wordt dan toegevoegd via javascript */
+
+.jump {
+    animation-name: jump;
+    animation-duration: 0.5s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-in-out;
+}
+
+
+/* de speler springt dus 200px omhoog */
+
+@keyframes jump {
+    0% {
+        top: 290px;
+    }
+    50% {
+        top: 90px;
+    }
+    100% {
+        top: 290px;
+    }
+}
+
+
+/* wanneer het pijltje naar beneden wordt ingeduwd, wordt deze klasse toegevoegd waarbij de speler een bukkende (lagere height) positie aanneemt */
+
+.ducking-player {
+    background: transparent url(../images/player-ducked.png) no-repeat;
+    background-size: 120px 75px;
+    width: 60px;
+    height: 75px;
+    position: absolute;
+    top: 325px;
+    left: 50px;
+    animation: player infinite steps(2);
+}
+
+.score {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.lives {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+
+/* dit is het coronadeeltje die ontweken moet worden de image is gewoon een ronde maar de clip path zorgt ervoor dat het de vorm heeft van een klassieke virus illustratie */
+
+.corona {
+    background-image: url(../images/corona.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    clip-path: polygon(100% 50%, 84.70057014808336% 54.5684167277018%, 91.0518476172854% 60.99980941685713%, 82.33578363789503% 63.39392013277814%, 93.30127018922194% 75%, 77.76736691019323% 71.30665001530522%, 80.05203820042827% 80.05203820042827%, 71.30665001530522% 77.76736691019323%, 75% 93.30127018922192%, 63.39392013277814% 82.33578363789503%, 60.99980941685714% 91.0518476172854%, 54.56841672770181% 84.70057014808336%, 50% 100%, 45.4315832722982% 84.70057014808336%, 39.000190583142874% 91.0518476172854%, 36.606079867221865% 82.33578363789505%, 25.00000000000001% 93.30127018922194%, 28.693349984694787% 77.76736691019323%, 19.947961799571733% 80.05203820042827%, 22.23263308980677% 71.30665001530522%, 6.698729810778076% 75.00000000000001%, 17.664216362104966% 63.39392013277815%, 8.948152382714603% 60.99980941685715%, 15.299429851916635% 54.568416727701816%, 0% 50.00000000000001%, 15.299429851916635% 45.431583272298205%, 8.94815238271459% 39.00019058314288%, 17.66421636210496% 36.60607986722188%, 6.698729810778062% 25.000000000000014%, 22.23263308980676% 28.693349984694787%, 19.947961799571715% 19.947961799571747%, 28.69334998469477% 22.232633089806775%, 24.99999999999998% 6.698729810778083%, 36.60607986722184% 17.664216362104973%, 39.00019058314284% 8.948152382714603%, 45.43158327229816% 15.299429851916642%, 49.99999999999999% 0%, 54.568416727701795% 15.299429851916635%, 60.99980941685711% 8.94815238271459%, 63.39392013277812% 17.66421636210496%, 74.99999999999997% 6.6987298107780475%, 71.3066500153052% 22.23263308980675%, 80.05203820042826% 19.947961799571722%, 77.76736691019323% 28.69334998469477%, 93.30127018922192% 24.99999999999998%, 82.33578363789502% 36.60607986722184%, 91.0518476172854% 39.00019058314283%, 84.70057014808336% 45.43158327229816%);
+}
+
+.level-1 {
+    position: absolute;
+    top: 60px;
+    left: 190px;
+}
+
+.level-2 {
+    position: absolute;
+    top: 60px;
+    left: 140px;
+}
+
+.level-3 {
+    position: absolute;
+    top: 60px;
+    left: 140px;
+}
+
+.level-4 {
+    position: absolute;
+    top: 60px;
+    left: 140px;
+}
+
+.level-5 {
+    position: absolute;
+    top: 60px;
+    left: 140px;
+}
+
+.display-none {
+    display: none;
+}
+
+.display {
+    display: block;
+}
+
+
+/* deze klasse wordt toegevoegd indien de speler al zijn levens kwijt is */
+
+.game-over {
+    position: absolute;
+    top: 40px;
+    left: 125px;
+    width: 450px;
+    height: 290px;
+    background-color: #fbbd05;
+    border-radius: 50px;
+    text-align: center;
+    padding-top: 3em;
+    color: #4285f5;
+}
+
+.game-over-text {
+    font-size: 24px;
+}
+
+.game-over-description {
+    color: #000000;
+    font-size: 13px;
+    margin-top: 3em;
+    padding: 0 2em;
+}
+
+.final-score {
+    margin-top: 3em;
+}
+
+.restart {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #34ab53;
+    color: #ffffff;
+    margin-top: 3em;
+    padding: 15px 30px;
+    transition: .3s ease;
+}
+
+
+/* hover transformation waarbij de button 5px naar beneden gaat en er een box shadow wordt toegevoegd */
+
+.restart:hover {
+    transform: translateY(5px);
+    transition: .3s ease;
+    box-shadow: 0 5px 0 #288440;
+}
